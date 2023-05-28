@@ -5,7 +5,6 @@ import { tUserUpdate, tUserReturn } from "../../interfaces/users.interfaces";
 import { returnUserSchema } from "../../schemas/users.schema";
 
 
-
 export const updateUserService = async (newUserData: tUserUpdate, idUser: number): Promise<tUserReturn> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
@@ -14,11 +13,9 @@ export const updateUserService = async (newUserData: tUserUpdate, idUser: number
         id: idUser
     })
 
-    const { admin, ...userDataWithoutIdAndAdmin } = newUserData;
-
     const user = userRepository.create({
         ...oldUserData,
-        ...userDataWithoutIdAndAdmin
+        ...newUserData
     })
 
     await userRepository.save(user)

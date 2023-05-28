@@ -6,6 +6,8 @@ import { userSchema, usersUpdateSchema } from "../schemas/users.schema";
 import { ensureTokenIsValid } from "../middlewares/ensureTokenIsValid.middleware";
 import { ensureUserExists } from "../middlewares/ensureUserExists.middleware";
 import { ensurePermission } from "../middlewares/ensurePermission.middleware";
+import { createContactController } from "../controllers/contacts.controller";
+import { contactSchema } from "../schemas/contacts.schemas";
 
 const usersRoutes: Router = Router()
 
@@ -14,5 +16,6 @@ usersRoutes.get("", ensureTokenIsValid, listUsersController);
 usersRoutes.delete( "/:id", ensureTokenIsValid, ensureUserExists, ensurePermission, deleteUserController);
 usersRoutes.patch( "/:id",  ensureTokenIsValid,  ensureUserExists, ensurePermission, ensureDataIsValid(usersUpdateSchema),  ensureDataIsUnique, updateUserController);
 usersRoutes.get("/:id", ensureTokenIsValid, readUserByIdController);
+usersRoutes.post("/:id/contacts",ensureDataIsValid(contactSchema), ensureDataIsUnique, createContactController)
 
 export default usersRoutes
