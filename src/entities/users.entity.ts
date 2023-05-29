@@ -27,9 +27,6 @@ export class User {
   @Column({ length: 15, unique: true })
   telephone: string;
 
-  @Column({ default: false})
-  admin: boolean;
-
   @CreateDateColumn({ type: "date" })
   createdAt: string;
 

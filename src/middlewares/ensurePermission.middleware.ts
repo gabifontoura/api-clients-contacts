@@ -7,7 +7,7 @@ export const ensurePermission = (
   next: NextFunction
 ) => {
 
-  if (parseInt(req.params.id) !== parseInt(res.locals.userId)) {
+  if (parseInt(req.params.id) !== parseInt(res.locals.userId) ) {
     throw new AppError("Insufficient permission", 403);
   }
 

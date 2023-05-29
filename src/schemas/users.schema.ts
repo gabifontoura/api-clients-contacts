@@ -5,8 +5,7 @@ export const userSchema = z.object({
     email: z.string().email().max(45),
     password: z.string().max(120),
     telephone: z.string().max(15),
-    admin:z.boolean().default(false),
-})
+}).strip()
 
 export const usersUpdateSchema = userSchema.partial()
 

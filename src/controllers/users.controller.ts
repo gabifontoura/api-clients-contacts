@@ -43,5 +43,5 @@ export const readUserByIdController = async (req: Request, res: Response) => {
 
   const user = await readUserByIdService(userId);
 
-  return res.status(200).json(user);
+  return res.json(user);
 };

@@ -9,14 +9,11 @@ export class Contact {
   @Column({ length: 45 })
   name: string;
 
-  @Column({ length: 45, unique: true })
+  @Column({ length: 45, unique: true})
   email: string;
 
   @Column({ length: 15, unique: true })
   telephone: string;
-
-  @Column({ default: false})
-  admin: boolean;
 
   @CreateDateColumn({ type: "date" })
   createdAt: string;
