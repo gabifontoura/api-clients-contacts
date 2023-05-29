@@ -1,5 +1,4 @@
-import { z } from 'zod'
-import { returnUserSchema } from './users.schema'
+import { z } from "zod";
 
 export const contactSchema = z.object({
     name: z.string().max(45),

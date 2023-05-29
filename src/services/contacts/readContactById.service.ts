@@ -1,7 +1,7 @@
-import { Repository } from "typeorm"
-import { AppDataSource } from "../../data-source"
-import { Contact } from "../../entities"
-import { tContactReturn } from "../../interfaces/contacts.interfaces"
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../data-source";
+import { Contact } from "../../entities";
+import { tContactReturn } from "../../interfaces/contacts.interfaces";
 import { AppError } from "../../errors";
 
 
