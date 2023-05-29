@@ -27,7 +27,7 @@ export const createLoginService = async (loginData: tLogin): Promise<string> => 
 
     const token: string = jwt.sign(
         {
-            id: user.id
+            name: user.name
         },
         process.env.SECRET_KEY!,
         {
