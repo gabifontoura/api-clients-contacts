@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express'
-import { ZodTypeAny } from 'zod'
+import { Request, Response, NextFunction } from "express";
+import { ZodTypeAny } from "zod";
 
 export const ensureDataIsValid = (schema: ZodTypeAny) => (req: Request, res: Response, next: NextFunction) => {
 
