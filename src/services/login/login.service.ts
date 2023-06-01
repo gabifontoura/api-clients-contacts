@@ -3,11 +3,13 @@ import jwt from 'jsonwebtoken'
 import { AppDataSource } from '../../data-source'
 import { User } from '../../entities'
 import { AppError } from '../../errors'
-import { tLogin } from '../../interfaces/login.interfaces'
+import { iLogin, tLogin } from '../../interfaces/login.interfaces'
 import 'dotenv/config'
 import { Repository } from 'typeorm'
 
-export const createLoginService = async (loginData: tLogin): Promise<string> => {
+
+
+export const createLoginService = async (loginData: tLogin): Promise<iLogin> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
@@ -36,6 +38,11 @@ export const createLoginService = async (loginData: tLogin): Promise<string> => 
         }
     )
 
-    return token
+    const response = {
+        token:token,
+        data:user
+    }
+
+    return response
 }
 
