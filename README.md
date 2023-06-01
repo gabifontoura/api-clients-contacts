@@ -1,6 +1,6 @@
 # clients-contacts
 
-Customer registration REST API linked to contacts (1:N).
+REST API (1:N)
 
 ![DER drawio](https://github.com/gabifontoura/api-clients-contacts/assets/110035918/cd27839f-acd8-49ae-9a81-c7a2af5b2a42)
 
