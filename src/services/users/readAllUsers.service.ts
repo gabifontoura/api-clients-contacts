@@ -9,7 +9,8 @@ export const listUsersService = async (): Promise<tAllUsersReturn> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
-    const findUsers: User[] = await userRepository.find({ withDeleted: true })
+    const findUsers = await userRepository.find()
+
 
     const users:tAllUsersReturn = returnAllUsersSchema.parse(findUsers)
 

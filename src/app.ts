@@ -5,9 +5,11 @@ import { handleErrors } from "./errors";
 import usersRoutes from "./routers/users.routes";
 import loginRoutes from "./routers/login.routes";
 import contactsRoutes from "./routers/contacts.routes";
+import cors from "cors"
 
 const app: Application = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(cors())
 app.use("/users", usersRoutes);
