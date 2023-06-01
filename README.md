@@ -159,7 +159,16 @@ Expected response:
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnVsYW5vIiwiaWF0IjoxNjg1MzY4Mjc5LCJleHAiOjE2ODU0NTQ2NzksInN1YiI6IjUifQ.yBnTjhJ0w5Rwzqa5gkgfKOvZnSULxLi6W95P0MFyUBA"
+	"token":
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZnVsYW5vIiwiaWF0IjoxNjg1NjU5MDg3LCJleHAiOjE2ODU3NDU0ODcsInN1YiI6IjUifQ.pE3alhUBpajHhUBaPVZw3yZpL7hTsT7eSOtc3plSqjg",
+	"user": {
+		"id": 5,
+		"name": "string",
+		"email": "email@email.com",
+		"password": "$2a$10$YRxrHE7m7NS43ZKjXSogzONK/VOBmlygHjQBEvA96b/MRVCenFv8q",
+		"telephone": "5511999999998",
+		"createdAt": "2023-05-28"
+	}
 }
 ```
 
