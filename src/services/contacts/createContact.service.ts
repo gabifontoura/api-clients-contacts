@@ -1,9 +1,9 @@
-import { Repository } from "typeorm"
-import { AppDataSource } from "../../data-source"
-import { Contact, User} from "../../entities"
-import { tContact, tContactReturn } from "../../interfaces/contacts.interfaces"
-import { returnContactSchema } from "../../schemas/contacts.schemas"
-import { AppError } from "../../errors"
+import { Repository } from "typeorm";
+import { AppDataSource } from "../../data-source";
+import { Contact, User} from "../../entities";
+import { tContact, tContactReturn } from "../../interfaces/contacts.interfaces";
+import { returnContactSchema } from "../../schemas/contacts.schemas";
+import { AppError } from "../../errors";
 
 
 export const createContactService = async (contactData: tContact, userId: number): Promise<tContactReturn> => {
