@@ -40,7 +40,7 @@ export const createLoginService = async (loginData: tLogin): Promise<iLogin> => 
 
     const response = {
         token:token,
-        data:user
+        user:user
     }
 
     return response

@@ -3,4 +3,4 @@ import { createLoginSchema } from "../schemas/login.schema";
 import { User } from "../entities";
 
 export type tLogin = z.infer<typeof createLoginSchema>
-export interface iLogin { token: string; data: User; }
+export interface iLogin { token: string; user: User; }
