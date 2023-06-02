@@ -22,7 +22,6 @@ $ yarn dev
 
 <br>
 Email is unique.
-Telephone is unique.
 <br>
 <br>
 
@@ -61,20 +60,61 @@ Expected response:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "string",
-    "email": "string@email.com",
-    "telephone": "string",
-    "createdAt": "2023-05-25"
-  },
-  {
-   "id": 2,
-    "name": "string",
-    "email": "string2@email.com",
-    "telephone": "string2",
-    "createdAt": "2023-05-25"
-  }
+	{
+		"id": 1,
+		"name": "String",
+		"email": "string@email.com",
+		"telephone": "+5511999999999",
+		"createdAt": "2023-05-25",
+		"contacts": [
+			{
+				"id": 3,
+				"name": "pessoal",
+				"email": "string2@email.com",
+				"telephone": "5511987654323",
+				"createdAt": "2023-05-28"
+			},
+			{
+				"id": 2,
+				"name": "empresa",
+				"email": "profissional@email.com",
+				"telephone": "5511987654324",
+				"createdAt": "2023-05-28"
+			},
+			
+		]
+	},
+	{
+		"id": 5,
+		"name": "fulano",
+		"email": "string462@email.com",
+		"telephone": "5511999999998",
+		"createdAt": "2023-05-28",
+		"contacts": []
+	},
+	{
+		"id": 6,
+		"name": "fulana",
+		"email": "fulana@email.com",
+		"telephone": "5511987654333",
+		"createdAt": "2023-06-01",
+		"contacts": [
+			{
+				"id": 3,
+				"name": "pessoal",
+				"email": "email@email.com",
+				"telephone": "5511987699933",
+				"createdAt": "2023-05-28"
+			},
+			{
+				"id": 2,
+				"name": "empresa",
+				"email": "profissional2@email.com",
+				"telephone": "5511988854324",
+				"createdAt": "2023-05-28"
+			},
+		]
+	}
 ]
 ```
 
