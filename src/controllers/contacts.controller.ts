@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { tContact, tContactReturn, tAllContactsReturn, tContactUpdate } from "../interfaces/contacts.interfaces";
+import { tContact, tContactReturn, tContactUpdate } from "../interfaces/contacts.interfaces";
 import { createContactService } from "../services/contacts/createContact.service";
 import { deleteContactService } from "../services/contacts/deleteContact.service";
 import {readContactByIdService } from "../services/contacts/readContactById.service";
@@ -14,14 +14,14 @@ export const createContactController = async (req: Request, res: Response) => {
     return res.status(201).json(newContact);
   };
   
-  export const readContactByIdController = async (req: Request, res: Response) => {
+export const readContactByIdController = async (req: Request, res: Response) => {
     
     const contactId: number = parseInt(req.params.id);
     const contact: tContactReturn = await readContactByIdService(contactId);
     return res.json(contact);
   };
   
-  export const updateContactController = async (req: Request, res: Response) => {
+export const updateContactController = async (req: Request, res: Response) => {
     const contactData: tContactUpdate = req.body;
     const contactId: number = parseInt(req.params.id);
   
@@ -30,7 +30,7 @@ export const createContactController = async (req: Request, res: Response) => {
     return res.json(updatedContact);
   };
   
-  export const deleteContactController = async (req: Request, res: Response) => {
+export const deleteContactController = async (req: Request, res: Response) => {
     const contactId: number = parseInt(req.params.id);
   
     await deleteContactService(contactId);

@@ -4,7 +4,6 @@ import { User } from "../../entities"
 import { tAllUsersReturn } from "../../interfaces/users.interfaces"
 
 
-
 export const listUsersService = async (): Promise<tAllUsersReturn> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)

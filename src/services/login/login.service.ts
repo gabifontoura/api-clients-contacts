@@ -8,7 +8,6 @@ import 'dotenv/config'
 import { Repository } from 'typeorm'
 
 
-
 export const createLoginService = async (loginData: tLogin): Promise<iLogin> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
