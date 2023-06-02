@@ -14,7 +14,7 @@ export const createLoginService = async (loginData: tLogin): Promise<iLogin> => 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
     const user: User | null = await userRepository.findOneBy({
-        email: loginData.email
+        email: loginData.email,
     })
 
     if(!user){
@@ -37,6 +37,7 @@ export const createLoginService = async (loginData: tLogin): Promise<iLogin> => 
             subject: String(user.id)
         }
     )
+    
 
     const response = {
         token:token,

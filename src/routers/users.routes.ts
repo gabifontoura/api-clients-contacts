@@ -16,6 +16,6 @@ usersRoutes.get("", ensureTokenIsValid, listUsersController);
 usersRoutes.delete( "/:id", ensureTokenIsValid, ensureUserExists, ensurePermission, deleteUserController);
 usersRoutes.patch( "/:id",  ensureTokenIsValid,  ensureUserExists, ensurePermission, ensureDataIsValid(usersUpdateSchema),  ensureDataIsUnique, updateUserController);
 usersRoutes.get("/:id", ensureTokenIsValid, readUserByIdController);
-usersRoutes.post("/:id/contacts",ensureDataIsValid(contactSchema), ensureDataIsUnique, createContactController)
+usersRoutes.post("/:id/contacts",ensureDataIsValid(contactSchema), createContactController)
 
 export default usersRoutes
