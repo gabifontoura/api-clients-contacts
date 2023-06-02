@@ -1,18 +1,19 @@
-import { compare } from "bcryptjs";
-import jwt from "jsonwebtoken";
-import { AppDataSource } from "../../data-source";
-import { User } from "../../entities";
-import { AppError } from "../../errors";
-import { tLogin } from "../../interfaces/login.interfaces";
-import "dotenv/config";
-import { Repository } from "typeorm";
+import { compare } from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { AppDataSource } from '../../data-source'
+import { User } from '../../entities'
+import { AppError } from '../../errors'
+import { iLogin, tLogin } from '../../interfaces/login.interfaces'
+import 'dotenv/config'
+import { Repository } from 'typeorm'
 
-export const createLoginService = async (loginData: tLogin): Promise<string> => {
+
+export const createLoginService = async (loginData: tLogin): Promise<iLogin> => {
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
     const user: User | null = await userRepository.findOneBy({
-        email: loginData.email
+        email: loginData.email,
     })
 
     if(!user){
@@ -35,7 +36,13 @@ export const createLoginService = async (loginData: tLogin): Promise<string> => 
             subject: String(user.id)
         }
     )
+    
 
-    return token
+    const response = {
+        token:token,
+        user:user
+    }
+
+    return response
 }
 
