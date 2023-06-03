@@ -12,7 +12,7 @@ export class Contact {
   @Column({ length: 45, unique: true})
   email: string;
 
-  @Column({ length: 15, unique: true })
+  @Column({ length: 15 })
   telephone: string;
 
   @CreateDateColumn({ type: "date" })
