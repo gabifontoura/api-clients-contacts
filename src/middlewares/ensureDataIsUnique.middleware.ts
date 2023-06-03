@@ -2,12 +2,11 @@ import { Request, Response, NextFunction}  from "express";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { User } from "../entities";
-
 import { AppError } from "../errors";
 
-export const ensureDataIsUnique = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+export const ensureDataIsUniqueOrOwner = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
 
-    const usersRepository: Repository<User> = AppDataSource.getRepository(User)
+ 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)
 
     const user = await userRepository.findOne({
@@ -21,8 +20,30 @@ export const ensureDataIsUnique = async (req: Request, res: Response, next: Next
     }
 
 
-    if(req.body.email && req.body.email!== user.email){
-        const verifyEmail = await usersRepository.findOneBy({
+    if(req.body.email && req.body.email !== user.email){
+        
+        const verifyEmail = await userRepository.findOneBy({
+            email: req.body.email
+        })
+       
+        if(verifyEmail){
+            throw new AppError("Email already exists", 409)
+        }
+    }
+
+
+    return next()
+
+}
+
+export const ensureDataIsUniqueCreate = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+
+ 
+    const userRepository: Repository<User> = AppDataSource.getRepository(User)
+
+    if(req.body.email){
+        
+        const verifyEmail = await userRepository.findOneBy({
             email: req.body.email
         })
        
