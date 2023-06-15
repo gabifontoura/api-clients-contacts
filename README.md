@@ -9,7 +9,7 @@ REST API (1:N)
 ```bash
 $ yarn
 ```
-Criar banco de dados, criar arquivo .env e configurar seguindo o .env.example
+É necessário criar banco de dados, criar arquivo .env e configurar seguindo o .env.example
 
 ## Running the app
 
